@@ -1,16 +1,22 @@
 [![Build Status](https://travis-ci.org/SimpleSoftwareIO/simple-qrcode.svg?branch=master)](https://travis-ci.org/SimpleSoftwareIO/simple-qrcode) [![Latest Stable Version](https://poser.pugx.org/simplesoftwareio/simple-qrcode/v/stable.svg)](https://packagist.org/packages/simplesoftwareio/simple-qrcode) [![Latest Unstable Version](https://poser.pugx.org/simplesoftwareio/simple-qrcode/v/unstable.svg)](https://packagist.org/packages/simplesoftwareio/simple-qrcode) [![License](https://poser.pugx.org/simplesoftwareio/simple-qrcode/license.svg)](https://packagist.org/packages/simplesoftwareio/simple-qrcode) [![Total Downloads](https://poser.pugx.org/simplesoftwareio/simple-qrcode/downloads.svg)](https://packagist.org/packages/simplesoftwareio/simple-qrcode)
 
+#### [Deutsch](http://www.simplesoftware.io/#/docs/simple-qrcode/de) | [Español](http://www.simplesoftware.io/#/docs/simple-qrcode/es) | [Français](http://www.simplesoftware.io/#/docs/simple-qrcode/fr) | [Italiano](http://www.simplesoftware.io/#/docs/simple-qrcode/it) | [Português](http://www.simplesoftware.io/#/docs/simple-qrcode/pt-br) | [Русский](http://www.simplesoftware.io/#/docs/simple-qrcode/ru) | [日本語](http://www.simplesoftware.io/#/docs/simple-qrcode/ja) | [한국어](http://www.simplesoftware.io/#/docs/simple-qrcode/kr) | [हिंदी](http://www.simplesoftware.io/#/docs/simple-qrcode/hi) | [简体中文](http://www.simplesoftware.io/#/docs/simple-qrcode/zh-cn)
 
-#### [Español](https://www.simplesoftware.io/simple-qrcode/es) | [Français](https://www.simplesoftware.io/simple-qrcode/fr) | [Italiano](https://www.simplesoftware.io/simple-qrcode/it) | [Português](https://www.simplesoftware.io/simple-qrcode/pt-br) | [Русский](https://www.simplesoftware.io/simple-qrcode/ru) | [हिंदी](https://www.simplesoftware.io/simple-qrcode/hi) | [汉语](https://www.simplesoftware.io/simple-qrcode/zh)
+## Try our dead simple, free file transfer service [keep.sh](https://keep.sh)
 
-- [Introduction](#docs-introduction)
-- [Translations](#docs-translations)
-- [Configuration](#docs-configuration)
-- [Simple Ideas](#docs-ideas)
-- [Usage](#docs-usage)
-- [Helpers](#docs-helpers)
-- [Common QrCode Usage](#docs-common-usage)
-- [Usage Outside of Laravel](#docs-outside-laravel)
+[![keep.sh](https://user-images.githubusercontent.com/624784/95805291-1121e980-0cd3-11eb-9048-0264bd9f2fd7.gif)](https://keep.sh)
+
+Upload files with a single curl command from your terminal! `curl --upload-file file.txt https://keep.sh`
+
+## Use Cases
+<p align="center">
+  <a href="https://www.rsvpify.com">
+  	<img width="300" src="https://rsvpify.com/wp-content/uploads/2017/03/rsvpify-logo-header-rsvp.png">
+  </a>
+</p>
+<p align="center">
+  <a href="https://rsvpify.com/sell-tickets">Platform to sell tickets online</a>
+</p>
 
 <a id="docs-introduction"></a>
 ## イントロダクション
@@ -131,13 +137,13 @@ Laravel Bladeに以下の様に書くことで モダンなブラウザに表示
 QrCode周辺のマージンを変更する機能もサポートされています。 次の構文を使用してマージンを指定します:
 	QrCode::margin(100);
 
-#### Error Correction
+#### Error Correction `(string $errorCorrection)`
 
 Changing the level of error correction is easy.  Just use the following syntax:
 
 	QrCode::errorCorrection('H');
 
-The following are supported options for the `errorCorrection` method.
+The following are supported options for the `errorCorrection` method:
 
 | Error Correction | Assurance Provided |
 | --- | --- |
@@ -148,9 +154,11 @@ The following are supported options for the `errorCorrection` method.
 
 >The more error correction used; the bigger the QrCode becomes and the less data it can store. Read more about [error correction](http://en.wikipedia.org/wiki/QR_code#Error_correction).
 
-#### Encoding
+#### Encoding `(string $encoding)`
 
-Change the character encoding that is used to build a QrCode.  By default `ISO-8859-1` is selected as the encoder.  Read more about [character encoding](http://en.wikipedia.org/wiki/Character_encoding) You can change this to any of the following:
+Change the character encoding that is used to build a QrCode.  By default `ISO-8859-1` is selected as the encoder.  Read more about [character encoding](http://en.wikipedia.org/wiki/Character_encoding).
+
+You can change this to any of the following:
 
 	QrCode::encoding('UTF-8')->generate('Make me a QrCode with special symbols ♠♥!!');
 
@@ -183,20 +191,16 @@ Change the character encoding that is used to build a QrCode.  By default `ISO-8
 | GBK |
 | EUC-KR |
 
->An error of `Could not encode content to ISO-8859-1` means that the wrong character encoding type is being used.  We recommend `UTF-8` if you are unsure.
-
-#### Merge
+#### Merge `(string $filepath, float $percentage = .2, bool $absolute = false)`
 
 The `merge` method merges an image over a QrCode.  This is commonly used to placed logos within a QrCode.
 
-	QrCode::merge($filename, $percentage, $absolute);
-
 	//Generates a QrCode with an image centered in the middle.
 	QrCode::format('png')->merge('path-to-image.png')->generate();
-
+	
 	//Generates a QrCode with an image centered in the middle.  The inserted image takes up 30% of the QrCode.
 	QrCode::format('png')->merge('path-to-image.png', .3)->generate();
-
+	
 	//Generates a QrCode with an image centered in the middle.  The inserted image takes up 30% of the QrCode.
 	QrCode::format('png')->merge('http://www.google.com/someimage.png', .3, true)->generate();
 
@@ -207,15 +211,13 @@ The `merge` method merges an image over a QrCode.  This is commonly used to plac
 
 ![Merged Logo](https://raw.githubusercontent.com/SimpleSoftwareIO/simple-qrcode/master/docs/imgs/merged-qrcode.png?raw=true)
 
-#### Merge Binary String
+#### Merge Binary String `(string $content, float $percentage = .2)`
 
-The `mergeString` method can be used to achieve the same as the `merge` call, except it allows you to provide a string representation of the file instead of the filepath. This is usefull when working with the `Storage` facade. It's interface is quite similar to the `merge` call.
-
-	QrCode::mergeString(Storage::get('path/to/image.png'), $percentage);
+The `mergeString` method can be used to achieve the same as the `merge` call, except it allows you to provide a string representation of the file instead of the filepath. This is usefull when working with the `Storage` facade. It's interface is quite similar to the `merge` call. 
 
 	//Generates a QrCode with an image centered in the middle.
 	QrCode::format('png')->mergeString(Storage::get('path/to/image.png'))->generate();
-
+	
 	//Generates a QrCode with an image centered in the middle.  The inserted image takes up 30% of the QrCode.
 	QrCode::format('png')->mergeString(Storage::get('path/to/image.png'), .3)->generate();
 
@@ -223,7 +225,7 @@ The `mergeString` method can be used to achieve the same as the `merge` call, ex
 
 #### Advance Usage
 
-All methods support chaining.  The `generate` method must be called last and any `format` change must be called first.  For example you could run any of the following:
+All methods support chaining.  The `generate` method must be called last.  For example you could run any of the following:
 
 	QrCode::size(250)->color(150,90,10)->backgroundColor(10,14,244)->generate('Make me a QrCode!');
 	QrCode::format('png')->size(399)->color(40,40,40)->generate('Make me a QrCode!');
@@ -241,13 +243,13 @@ Helpers are an easy way to create QrCodes that cause a reader to perform a certa
 
 #### BitCoin
 
-This helpers generates a scannable bitcoin to send payments.  [More information](https://bitco.in/en/developer-guide#plain-text)
+This helper generates a scannable bitcoin to send payments.  [More information](https://bitco.in/en/developer-guide#plain-text)
 
 	QrCode::BTC($address, $amount);
-
+	
 	//Sends a 0.334BTC payment to the address
 	QrCode::BTC('bitcoin address', 0.334);
-
+	
 	//Sends a 0.334BTC payment to the address with some optional arguments
 	QrCode::size(500)->BTC('address', 0.0034, [
         'label' => 'my label',
@@ -257,51 +259,51 @@ This helpers generates a scannable bitcoin to send payments.  [More information]
 
 #### E-Mail
 
-This helper generates an e-mail qrcode that is able to fill in the e-mail address, subject, and body.
+This helper generates an e-mail qrcode that is able to fill in the e-mail address, subject, and body:
 
 	QrCode::email($to, $subject, $body);
-
+	
 	//Fills in the to address
 	QrCode::email('foo@bar.com');
-
+	
 	//Fills in the to address, subject, and body of an e-mail.
 	QrCode::email('foo@bar.com', 'This is the subject.', 'This is the message body.');
-
+	
 	//Fills in just the subject and body of an e-mail.
 	QrCode::email(null, 'This is the subject.', 'This is the message body.');
-
+	
 #### Geo
 
-This helper generates a latitude and longitude that a phone can read and open the location up in Google Maps or similar app.
+This helper generates a latitude and longitude that a phone can read and opens the location in Google Maps or similar app.
 
 	QrCode::geo($latitude, $longitude);
-
+	
 	QrCode::geo(37.822214, -122.481769);
-
+	
 #### Phone Number
 
 This helper generates a QrCode that can be scanned and then dials a number.
 
 	QrCode::phoneNumber($phoneNumber);
-
+	
 	QrCode::phoneNumber('555-555-5555');
 	QrCode::phoneNumber('1-800-Laravel');
-
+	
 #### SMS (Text Messages)
 
-This helper makes SMS messages that can be prefilled with the send to address and body of the message.
+This helper makes SMS messages that can be prefilled with the send to address and body of the message:
 
 	QrCode::SMS($phoneNumber, $message);
-
+	
 	//Creates a text message with the number filled in.
 	QrCode::SMS('555-555-5555');
-
+	
 	//Creates a text message with the number and message filled in.
 	QrCode::SMS('555-555-5555', 'Body of the message');
 
 #### WiFi
 
-This helpers makes scannable QrCodes that can connect a phone to a WiFI network.
+This helpers makes scannable QrCodes that can connect a phone to a WiFi network:
 
 	QrCode::wiFi([
 		'encryption' => 'WPA/WEP',
@@ -309,25 +311,25 @@ This helpers makes scannable QrCodes that can connect a phone to a WiFI network.
 		'password' => 'Password of the network',
 		'hidden' => 'Whether the network is a hidden SSID or not.'
 	]);
-
+	
 	//Connects to an open WiFi network.
 	QrCode::wiFi([
 		'ssid' => 'Network Name',
 	]);
-
+	
 	//Connects to an open, hidden WiFi network.
 	QrCode::wiFi([
 		'ssid' => 'Network Name',
 		'hidden' => 'true'
 	]);
-
-	//Connects to an secured, WiFi network.
+	
+	//Connects to a secured WiFi network.
 	QrCode::wiFi([
 		'ssid' => 'Network Name',
 		'encryption' => 'WPA',
 		'password' => 'myPassword'
 	]);
-
+	
 >WiFi scanning is not currently supported on Apple Products.
 
 <a id="docs-common-usage"></a>
@@ -355,9 +357,9 @@ You can use a prefix found in the table below inside the `generate` section to c
 <a id="docs-outside-laravel"></a>
 ## Usage Outside of Laravel
 
-You may use this package outside of Laravel by instantiating a new `BaconQrCodeGenerator` class.
+You may use this package outside of Laravel by instantiating a new `Generator` class.
 
-	use SimpleSoftwareIO\QrCode\BaconQrCodeGenerator;
+	use SimpleSoftwareIO\QrCode\Generator;
 
-	$qrcode = new BaconQrCodeGenerator;
+	$qrcode = new Generator;
 	$qrcode->size(500)->generate('Make a qrcode without Laravel!');
