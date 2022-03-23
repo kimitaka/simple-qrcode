@@ -137,22 +137,22 @@ Laravel Bladeに以下の様に書くことで モダンなブラウザに表示
 QrCode周辺のマージンを変更する機能もサポートされています。 次の構文を使用してマージンを指定します:
 	QrCode::margin(100);
 
-#### Error Correction `(string $errorCorrection)`
+#### エラー訂正 `(string $errorCorrection)`
 
-Changing the level of error correction is easy.  Just use the following syntax:
+エラー訂正レベルの変更は簡単です。次のようにします：
 
 	QrCode::errorCorrection('H');
 
-The following are supported options for the `errorCorrection` method:
+`errorCorrection` メソッドによってサポートされているオプション値は以下の通りです：
 
-| Error Correction | Assurance Provided |
-| --- | --- |
-| L | 7% of codewords can be restored. |
-| M | 15% of codewords can be restored. |
-| Q | 25% of codewords can be restored. |
-| H | 30% of codewords can be restored. |
+| エラー訂正レベル | 補償できる誤りの割合       |
+|----------|------------------|
+| L        | 7% までの誤りが復元できます  |
+| M        | 15% までの誤りが復元できます |
+| Q        | 25% までの誤りが復元できます |
+| H        | 30% までの誤りが復元できます |
 
->The more error correction used; the bigger the QrCode becomes and the less data it can store. Read more about [error correction](http://en.wikipedia.org/wiki/QR_code#Error_correction).
+> より高いエラー訂正レベルを使用すると、QRコードの大きさはより大きくなり、格納できるデータ量は少なくなります。詳しくは [エラー訂正（リンク先は英語です）](http://en.wikipedia.org/wiki/QR_code#Error_correction) をご覧ください。
 
 #### Encoding `(string $encoding)`
 
