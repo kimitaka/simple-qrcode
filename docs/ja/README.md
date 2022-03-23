@@ -154,42 +154,43 @@ QrCode周辺のマージンを変更する機能もサポートされていま�
 
 > より高いエラー訂正レベルを使用すると、QRコードの大きさはより大きくなり、格納できるデータ量は少なくなります。詳しくは [エラー訂正（リンク先は英語です）](http://en.wikipedia.org/wiki/QR_code#Error_correction) をご覧ください。
 
-#### Encoding `(string $encoding)`
+#### 文字コード `(string $encoding)`
 
-Change the character encoding that is used to build a QrCode.  By default `ISO-8859-1` is selected as the encoder.  Read more about [character encoding](http://en.wikipedia.org/wiki/Character_encoding).
+QRコードの生成に使われる文字コードを変更します。デフォルトでは`ISO-8859-1`が指定されています。
+詳細は [文字コード](https://ja.wikipedia.org/wiki/%E6%96%87%E5%AD%97%E3%82%B3%E3%83%BC%E3%83%89) をお読みください。
 
-You can change this to any of the following:
+以下のようにして文字コードを変更できます:
 
-	QrCode::encoding('UTF-8')->generate('Make me a QrCode with special symbols ♠♥!!');
+	QrCode::encoding('UTF-8')->generate('日本語や特殊な文字を含むQRコードも作れます♠♥!!');
 
-| Character Encoder |
-| --- |
-| ISO-8859-1 |
-| ISO-8859-2 |
-| ISO-8859-3 |
-| ISO-8859-4 |
-| ISO-8859-5 |
-| ISO-8859-6 |
-| ISO-8859-7 |
-| ISO-8859-8 |
-| ISO-8859-9 |
-| ISO-8859-10 |
-| ISO-8859-11 |
-| ISO-8859-12 |
-| ISO-8859-13 |
-| ISO-8859-14 |
-| ISO-8859-15 |
-| ISO-8859-16 |
-| SHIFT-JIS |
+| 文字コード        |
+|--------------|
+| ISO-8859-1   |
+| ISO-8859-2   |
+| ISO-8859-3   |
+| ISO-8859-4   |
+| ISO-8859-5   |
+| ISO-8859-6   |
+| ISO-8859-7   |
+| ISO-8859-8   |
+| ISO-8859-9   |
+| ISO-8859-10  |
+| ISO-8859-11  |
+| ISO-8859-12  |
+| ISO-8859-13  |
+| ISO-8859-14  |
+| ISO-8859-15  |
+| ISO-8859-16  |
+| SHIFT-JIS    |
 | WINDOWS-1250 |
 | WINDOWS-1251 |
 | WINDOWS-1252 |
 | WINDOWS-1256 |
-| UTF-16BE |
-| UTF-8 |
-| ASCII |
-| GBK |
-| EUC-KR |
+| UTF-16BE     |
+| UTF-8        |
+| ASCII        |
+| GBK          |
+| EUC-KR       |
 
 #### Merge `(string $filepath, float $percentage = .2, bool $absolute = false)`
 
