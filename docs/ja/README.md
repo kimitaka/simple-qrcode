@@ -192,23 +192,24 @@ QRコードの生成に使われる文字コードを変更します。デフォ
 | GBK          |
 | EUC-KR       |
 
-#### Merge `(string $filepath, float $percentage = .2, bool $absolute = false)`
+#### 重ね合わせ `(string $filepath, float $percentage = .2, bool $absolute = false)`
 
-The `merge` method merges an image over a QrCode.  This is commonly used to placed logos within a QrCode.
+`merge` method merges an image over a QrCode.  This is commonly used to placed logos within a QrCode.
+`merge`メソッドはQRコードの上に画像を重ね合わせます。この機能は主にQRコードの中にロゴなどを配置する目的で使われます。
 
-	//Generates a QrCode with an image centered in the middle.
+    //中央に画像を配置したQRコードを生成します
 	QrCode::format('png')->merge('path-to-image.png')->generate();
 	
-	//Generates a QrCode with an image centered in the middle.  The inserted image takes up 30% of the QrCode.
+    //中央に画像を配置したQRコードを生成します。配置された画像は最大でQRコードの大きさの30%になります。
 	QrCode::format('png')->merge('path-to-image.png', .3)->generate();
 	
-	//Generates a QrCode with an image centered in the middle.  The inserted image takes up 30% of the QrCode.
+    //中央に画像を配置したQRコードを生成します。配置された画像は最大でQRコードの大きさの30%になります。
 	QrCode::format('png')->merge('http://www.google.com/someimage.png', .3, true)->generate();
 
->The `merge` method only supports PNG at this time.
->The filepath is relative to app base path if `$absolute` is set to `false`.  Change this variable to `true` to use absolute paths.
+> `merge`メソッドは現在のところPNGファイルのみをサポートしています。
+> 引数`$absolute`が`false`の場合はファイルパスはプロジェクトルートからの相対パスとして認識されます。絶対パスで指定する場合は`true`を指定してください。
 
->You should use a high level of error correction when using the `merge` method to ensure that the QrCode is still readable.  We recommend using `errorCorrection('H')`.
+> `merge`メソッドを使用して画像を重ねているときでもQRコードを読み取れるようにするために、エラー訂正レベルも高くするべきです。`errorCorrection('H')`の使用を推奨します。
 
 ![Merged Logo](https://raw.githubusercontent.com/SimpleSoftwareIO/simple-qrcode/master/docs/imgs/merged-qrcode.png?raw=true)
 
