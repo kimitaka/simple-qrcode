@@ -213,17 +213,17 @@ QRコードの生成に使われる文字コードを変更します。デフォ
 
 ![ロゴを重ねた状態のサンプル](https://raw.githubusercontent.com/SimpleSoftwareIO/simple-qrcode/master/docs/imgs/merged-qrcode.png?raw=true)
 
-#### Merge Binary String `(string $content, float $percentage = .2)`
+#### バイナリ文字列による重ね合わせ `(string $content, float $percentage = .2)`
 
-The `mergeString` method can be used to achieve the same as the `merge` call, except it allows you to provide a string representation of the file instead of the filepath. This is usefull when working with the `Storage` facade. It's interface is quite similar to the `merge` call. 
+`mergeString`メソッドは、ファイルを指定する代わりにバイナリ文字列を受け取る点を除いては`merge`メソッドと同様の挙動になります。
 
-	//Generates a QrCode with an image centered in the middle.
+	// 中央に画像を配置したQRコードを生成します
 	QrCode::format('png')->mergeString(Storage::get('path/to/image.png'))->generate();
 	
-	//Generates a QrCode with an image centered in the middle.  The inserted image takes up 30% of the QrCode.
+	// 中央に画像を配置したQRコードを生成します。配置された画像は最大でQRコードの大きさの30%になります。
 	QrCode::format('png')->mergeString(Storage::get('path/to/image.png'), .3)->generate();
 
->As with the normal `merge` call, only PNG is supported at this time. The same applies for error correction, high levels are recommened.
+> `merge`メソッドと同様に、現時点ではPNG形式のみサポートしています。エラー訂正についても同様にHレベルを推奨します。
 
 #### Advance Usage
 
