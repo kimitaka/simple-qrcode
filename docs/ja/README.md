@@ -237,75 +237,75 @@ QRコードの生成に使われる文字コードを変更します。デフォ
 	<img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(100)->generate('Make me into an QrCode!')) !!} ">
 
 <a id="docs-helpers"></a>
-## Helpers
+## ヘルパー
 
-#### What are helpers?
+#### ヘルパーとは
 
-Helpers are an easy way to create QrCodes that cause a reader to perform a certain action when scanned.  
+ヘルパーは読み込み時に特定のアクションを実行するQRコードを簡単に生成するための機能です。
 
-#### BitCoin
+#### ビットコイン
 
-This helper generates a scannable bitcoin to send payments.  [More information](https://bitco.in/en/developer-guide#plain-text)
+このヘルパーはビットコインの支払用QRコードを生成します。[詳細情報（リンク先は英語です）](https://bitco.in/en/developer-guide#plain-text)
 
 	QrCode::BTC($address, $amount);
 	
-	//Sends a 0.334BTC payment to the address
+	// 0.334BTCを指定したアドレスに送金
 	QrCode::BTC('bitcoin address', 0.334);
 	
-	//Sends a 0.334BTC payment to the address with some optional arguments
+	// いくつかのオプションを付けて0.334BTCを指定したアドレスに送金
 	QrCode::size(500)->BTC('address', 0.0034, [
         'label' => 'my label',
         'message' => 'my message',
         'returnAddress' => 'https://www.returnaddress.com'
     ]);
 
-#### E-Mail
+#### Eメール
 
-This helper generates an e-mail qrcode that is able to fill in the e-mail address, subject, and body:
+このヘルパーはEメールアドレス、件名、本文を指定してメールを送信するQRコードを生成します。
 
 	QrCode::email($to, $subject, $body);
 	
-	//Fills in the to address
+	// アドレスを指定します
 	QrCode::email('foo@bar.com');
 	
-	//Fills in the to address, subject, and body of an e-mail.
+	// アドレス、件名、本文を指定します
 	QrCode::email('foo@bar.com', 'This is the subject.', 'This is the message body.');
 	
-	//Fills in just the subject and body of an e-mail.
+	// メールの件名と本文のみを指定します
 	QrCode::email(null, 'This is the subject.', 'This is the message body.');
 	
-#### Geo
+#### 位置情報
 
-This helper generates a latitude and longitude that a phone can read and opens the location in Google Maps or similar app.
+このヘルパーは緯度と経度を指定してGoogleマップなどの地図アプリを開くQRコードを生成します。
 
 	QrCode::geo($latitude, $longitude);
 	
 	QrCode::geo(37.822214, -122.481769);
 	
-#### Phone Number
+#### 電話番号
 
-This helper generates a QrCode that can be scanned and then dials a number.
+このヘルパーは読み取ったときに電話をかけるQRコードを生成します。
 
 	QrCode::phoneNumber($phoneNumber);
 	
 	QrCode::phoneNumber('555-555-5555');
 	QrCode::phoneNumber('1-800-Laravel');
 	
-#### SMS (Text Messages)
+#### SMS
 
-This helper makes SMS messages that can be prefilled with the send to address and body of the message:
+このヘルパーは送信先と本文を指定してSMSメッセージを作成するQRコードを生成します。
 
 	QrCode::SMS($phoneNumber, $message);
 	
-	//Creates a text message with the number filled in.
+	// 電話番号が入力済みの状態でSMSメッセージを作成します
 	QrCode::SMS('555-555-5555');
 	
-	//Creates a text message with the number and message filled in.
+	// 電話番号と本文が入力済みの状態でSMSメッセージを作成します
 	QrCode::SMS('555-555-5555', 'Body of the message');
 
-#### WiFi
+#### Wi-Fi
 
-This helpers makes scannable QrCodes that can connect a phone to a WiFi network:
+このヘルパーはWi-Fiの接続情報を自動入力するQRコードを生成します。
 
 	QrCode::wiFi([
 		'encryption' => 'WPA/WEP',
@@ -314,47 +314,47 @@ This helpers makes scannable QrCodes that can connect a phone to a WiFi network:
 		'hidden' => 'Whether the network is a hidden SSID or not.'
 	]);
 	
-	//Connects to an open WiFi network.
+	// Wi-Fiのオープンネットワークに接続します
 	QrCode::wiFi([
 		'ssid' => 'Network Name',
 	]);
 	
-	//Connects to an open, hidden WiFi network.
+	// SSIDの公開されていないオープンネットワークに接続します
 	QrCode::wiFi([
 		'ssid' => 'Network Name',
 		'hidden' => 'true'
 	]);
 	
-	//Connects to a secured WiFi network.
+	// 暗号化されたWi-Fiネットワーク接続します
 	QrCode::wiFi([
 		'ssid' => 'Network Name',
 		'encryption' => 'WPA',
 		'password' => 'myPassword'
 	]);
 	
->WiFi scanning is not currently supported on Apple Products.
+> Wi-Fi接続情報のQRコードは現在のところApple社の製品ではサポートされていません。
 
 <a id="docs-common-usage"></a>
-## Common QrCode Usage
+## よくあるQRコードの利用方法
 
-You can use a prefix found in the table below inside the `generate` section to create a QrCode to store more advanced information:
+`generate`メソッドに渡す文字列にプレフィックスを付けることで、様々なQRコードを生成できます。
 
 	QrCode::generate('http://www.simplesoftware.io');
 
 
-| Usage | Prefix | Example |
-| --- | --- | --- |
-| Website URL | http:// | http://www.simplesoftware.io |
-| Secured URL | https:// | https://www.simplesoftware.io |
-| E-mail Address | mailto: | mailto:support@simplesoftware.io |
-| Phone Number | tel: | tel:555-555-5555 |
-| Text (SMS) | sms: | sms:555-555-5555 |
-| Text (SMS) With Pretyped Message | sms: | sms::I am a pretyped message |
-| Text (SMS) With Pretyped Message and Number | sms: | sms:555-555-5555:I am a pretyped message |
-| Geo Address | geo: | geo:-78.400364,-85.916993 |
-| MeCard | mecard: | MECARD:Simple, Software;Some Address, Somewhere, 20430;TEL:555-555-5555;EMAIL:support@simplesoftware.io; |
-| VCard | BEGIN:VCARD | [See Examples](https://en.wikipedia.org/wiki/VCard) |
-| Wifi | wifi: | wifi:WEP/WPA;SSID;PSK;Hidden(True/False) |
+| 利用方法            | プレフィックス     | 例                                                                                                        |
+|-----------------|-------------|----------------------------------------------------------------------------------------------------------|
+| ウェブサイトURL       | http://     | http://www.simplesoftware.io                                                                             |
+| 暗号化されたウェブサイトURL | https://    | https://www.simplesoftware.io                                                                            |
+| Eメールアドレス        | mailto:     | mailto:support@simplesoftware.io                                                                         |
+| 電話番号            | tel:        | tel:555-555-5555                                                                                         |
+| SMS             | sms:        | sms:555-555-5555                                                                                         |
+| 本文入力済みSMS       | sms:        | sms::入力済みメッセージ                                                                                           |
+| 本文・宛先入力済みSMS    | sms:        | sms:555-555-5555:入力済みメッセージ                                                                               |
+| 位置情報            | geo:        | geo:-78.400364,-85.916993                                                                                |
+| MeCard          | mecard:     | MECARD:Simple, Software;Some Address, Somewhere, 20430;TEL:555-555-5555;EMAIL:support@simplesoftware.io; |
+| VCard           | BEGIN:VCARD | [例（リンク先は英語です）](https://en.wikipedia.org/wiki/VCard)                                                      |
+| Wi-Fi           | wifi:       | wifi:WEP/WPA;SSID;PSK;Hidden(True/False)                                                                 |
 
 <a id="docs-outside-laravel"></a>
 ## Usage Outside of Laravel
