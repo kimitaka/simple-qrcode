@@ -25,19 +25,24 @@ Simple QrCode は [Bacon/BaconQrCode](https://github.com/Bacon/BaconQrCode) を�
 We are looking for users who speak Arabic, Spanish, French, Korean or Japanese to help translate this document.  Please create a pull request if you are able to make a translation!
 
 <a id="docs-upgrade"></a>
-## Upgrade Guide
+## アップグレード
 
-Upgrade from v2 or v3 by changing your `composer.json` file to `~4`
+v2とv3からのアップデートは、`composer.json`ファイル内のバージョン指定を`~4`に変更してください。
 
-You **must** install the `imagick` PHP extension if you plan on using the `png` image format.
+PNG形式の画像を生成する場合は、**必ず**`imagick` PHP拡張をインストールしてください。
 
 #### v4
 
-> There was a mistake when creating 4.1.0 and allowing a backwards breaking change into the master branch.  The `generate` method will now return an instance of `Illuminate\Support\HtmlString` if you are running Laravel.  See https://github.com/SimpleSoftwareIO/simple-qrcode/issues/205 for more information.
+> 4.1.0を作成するときのミスで、後方互換性が失われる変更がmasterブランチに入りました。
+> `generate`メソッドは現在は `Illuminate\Support\HtmlString` のインスタンスを返します。
+> 詳細は https://github.com/SimpleSoftwareIO/simple-qrcode/issues/205 を参照してください。
 
-There was a Laravel facade issue within v3 that causes some loading issues.  The only way to fix this was to create a backwards breaking change so v4 has been released.  If you are coming from v2 there is no need to change any code.  The below change only effects users on v3.
+v3での読み込みに関する問題を引き起こすLaravelファサードの問題がありました。
+この問題を解決するためには、後方互換性が失われる変更を加える必要があり、v4がリリースされるに至った経緯があります。
+v2からのアップグレードの場合は既存コードの変更は必要ありません。
+以下の説明はv3ユーザー向けです。
 
-All references to the `QrCode` facade need to be changed to:
+全ての`QrCode`ファサードへの参照は以下のように変更する必要があります:
 
 ```
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
