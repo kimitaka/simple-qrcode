@@ -131,7 +131,6 @@ Laravel Blade に以下の様に書くことで モダンなブラウザに表�
 
 #### 背景色の変更 `(int $red, int $green, int $blue, int $alpha = null)`
 
-You can change the background color of a QrCode by calling the `backgroundColor` method.
 `backgroudColor`メソッドを呼び出すことでQRコードの背景色を変更できます。
 
 	QrCode::backgroundColor(255, 0, 0); // 赤が背景色のQRコード
@@ -194,6 +193,7 @@ You can change the background color of a QrCode by calling the `backgroundColor`
 #### マージンの変更 `(int $margin)`
 
 QRコード周辺のマージンを変更する機能もサポートされています。 次の構文を使用してマージンを指定します:
+
 	QrCode::margin(100);
 
 #### エラー訂正 `(string $errorCorrection)`
@@ -253,7 +253,6 @@ QRコードの生成に使われる文字コードを変更します。デフォ
 
 #### 重ね合わせ `(string $filepath, float $percentage = .2, bool $absolute = false)`
 
-`merge` method merges an image over a QrCode.  This is commonly used to placed logos within a QrCode.
 `merge`メソッドはQRコードの上に画像を重ね合わせます。この機能は主にQRコードの中にロゴなどを配置する目的で使われます。
 
     //中央に画像を配置したQRコードを生成します
