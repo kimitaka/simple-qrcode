@@ -225,14 +225,14 @@ QRコードの生成に使われる文字コードを変更します。デフォ
 
 > `merge`メソッドと同様に、現時点ではPNG形式のみサポートしています。エラー訂正についても同様にHレベルを推奨します。
 
-#### Advance Usage
+#### 一歩進んだ使い方
 
-All methods support chaining.  The `generate` method must be called last.  For example you could run any of the following:
+全てのメソッドはチェーン呼び出しをサポートしています。`generate`メソッドは必ず最後に呼び出されなければいけません。例えば以下のようになります:
 
 	QrCode::size(250)->color(150,90,10)->backgroundColor(10,14,244)->generate('Make me a QrCode!');
 	QrCode::format('png')->size(399)->color(40,40,40)->generate('Make me a QrCode!');
 
-You can display a PNG image without saving the file by providing a raw string and encoding with `base64_encode`.
+そのままのバイナリ文字列と`base64_encode`によるエンコーディングを組み合わせて、PNG画像をファイルとして保存することなく直接表示することもできます。
 
 	<img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(100)->generate('Make me into an QrCode!')) !!} ">
 
