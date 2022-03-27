@@ -129,14 +129,15 @@ Laravel Blade に以下の様に書くことで モダンなブラウザに表�
 
 	QrCode::backgroundColor(255,255,0);
 
-#### Background Color `(int $red, int $green, int $blue, int $alpha = null)`
+#### 背景色の変更 `(int $red, int $green, int $blue, int $alpha = null)`
 
 You can change the background color of a QrCode by calling the `backgroundColor` method.
+`backgroudColor`メソッドを呼び出すことでQRコードの背景色を変更できます。
 
-	QrCode::backgroundColor(255, 0, 0); // Red background QrCode
-	QrCode::backgroundColor(255, 0, 0, 25); //Red background QrCode with 25% transparency 
+	QrCode::backgroundColor(255, 0, 0); // 赤が背景色のQRコード
+	QrCode::backgroundColor(255, 0, 0, 25); // 透明度25%で赤が背景色のQRコード
 
-![Red Background QrCode](https://raw.githubusercontent.com/SimpleSoftwareIO/simple-qrcode/master/docs/imgs/red-background.png?raw=true) ![Red Transparent Background QrCode](https://raw.githubusercontent.com/SimpleSoftwareIO/simple-qrcode/master/docs/imgs/red-25-transparent-background.png?raw=true)
+![赤が背景色のQRコード](https://raw.githubusercontent.com/SimpleSoftwareIO/simple-qrcode/master/docs/imgs/red-background.png?raw=true) ![赤が背景色で透過なQRコード](https://raw.githubusercontent.com/SimpleSoftwareIO/simple-qrcode/master/docs/imgs/red-25-transparent-background.png?raw=true)
 
 #### Gradient `$startRed, $startGreen, $startBlue, $endRed, $endGreen, $endBlue, string $type)`
 
