@@ -3,6 +3,7 @@
 #### [Deutsch](http://www.simplesoftware.io/#/docs/simple-qrcode/de) | [Español](http://www.simplesoftware.io/#/docs/simple-qrcode/es) | [Français](http://www.simplesoftware.io/#/docs/simple-qrcode/fr) | [Italiano](http://www.simplesoftware.io/#/docs/simple-qrcode/it) | [Português](http://www.simplesoftware.io/#/docs/simple-qrcode/pt-br) | [Русский](http://www.simplesoftware.io/#/docs/simple-qrcode/ru) | [日本語](http://www.simplesoftware.io/#/docs/simple-qrcode/ja) | [한국어](http://www.simplesoftware.io/#/docs/simple-qrcode/kr) | [हिंदी](http://www.simplesoftware.io/#/docs/simple-qrcode/hi) | [简体中文](http://www.simplesoftware.io/#/docs/simple-qrcode/zh-cn) | [العربية](https://www.simplesoftware.io/#/docs/simple-qrcode/ar)
 
 - [イントロダクション](#docs-introduction)
+- [アップグレードガイド](#docs-upgrade)
 - [翻訳](#docs-translations)
 - [設定](#docs-configuration)
 - [簡単な使い方](#docs-ideas)
@@ -22,6 +23,25 @@ Simple QrCode は [Bacon/BaconQrCode](https://github.com/Bacon/BaconQrCode) を�
 この文書の翻訳を手伝ってくれるアラビア語、スペイン語、フランス語、韓国語、日本語を話すユーザーを探しています。 翻訳が可能な場合はプルリクエストを作成してください。
 
 We are looking for users who speak Arabic, Spanish, French, Korean or Japanese to help translate this document.  Please create a pull request if you are able to make a translation!
+
+<a id="docs-upgrade"></a>
+## Upgrade Guide
+
+Upgrade from v2 or v3 by changing your `composer.json` file to `~4`
+
+You **must** install the `imagick` PHP extension if you plan on using the `png` image format.
+
+#### v4
+
+> There was a mistake when creating 4.1.0 and allowing a backwards breaking change into the master branch.  The `generate` method will now return an instance of `Illuminate\Support\HtmlString` if you are running Laravel.  See https://github.com/SimpleSoftwareIO/simple-qrcode/issues/205 for more information.
+
+There was a Laravel facade issue within v3 that causes some loading issues.  The only way to fix this was to create a backwards breaking change so v4 has been released.  If you are coming from v2 there is no need to change any code.  The below change only effects users on v3.
+
+All references to the `QrCode` facade need to be changed to:
+
+```
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
+```
 
 <a id="docs-configuration"></a>
 ## 設定
