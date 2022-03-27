@@ -357,9 +357,9 @@ QRコードの生成に使われる文字コードを変更します。デフォ
 | Wi-Fi           | wifi:       | wifi:WEP/WPA;SSID;PSK;Hidden(True/False)                                                                 |
 
 <a id="docs-outside-laravel"></a>
-## Usage Outside of Laravel
+## Laravel外での使い方
 
-You may use this package outside of Laravel by instantiating a new `Generator` class.
+このパッケージは`Generater`クラスをインスタンス化することで、Laravelの外でも使えます。
 
 	use SimpleSoftwareIO\QrCode\Generator;
 
