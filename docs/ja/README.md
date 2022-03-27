@@ -53,23 +53,9 @@ use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 #### Composer
 
-最初にあなたの `composer.json` に Simple QrCode パッケージを追加する必要があります。
+`composer require simplesoftwareio/simple-qrcode "~4"` を実行してパッケージを追加します。
 
-	"require": {
-		"simplesoftwareio/simple-qrcode": "~2"
-	}
-
-追加したら `composer update` コマンドを実行します。
-
-#### サービスプロバイダー
-
-###### Laravel <= 5.4
-(あなたが Simple QrCode を入れる Laravelの) `config/app.php` の `providers`配列 に `SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class` を登録します。
-
-#### エイリアス
-
-###### Laravel <= 5.4
-最後に `config/app.php` の `aliases`配列に `'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class` を登録します。
+Laravelが自動的に必要なパッケージをインストールします。
 
 <a id="docs-ideas"></a>
 ## 簡単な使い方
