@@ -211,7 +211,7 @@ QRコードの生成に使われる文字コードを変更します。デフォ
 
 > `merge`メソッドを使用して画像を重ねているときでもQRコードを読み取れるようにするために、エラー訂正レベルも高くするべきです。`errorCorrection('H')`の使用を推奨します。
 
-![Merged Logo](https://raw.githubusercontent.com/SimpleSoftwareIO/simple-qrcode/master/docs/imgs/merged-qrcode.png?raw=true)
+![ロゴを重ねた状態のサンプル](https://raw.githubusercontent.com/SimpleSoftwareIO/simple-qrcode/master/docs/imgs/merged-qrcode.png?raw=true)
 
 #### Merge Binary String `(string $content, float $percentage = .2)`
 
