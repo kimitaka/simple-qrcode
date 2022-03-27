@@ -13,7 +13,9 @@
 
 <a id="docs-introduction"></a>
 ## イントロダクション
-Simple QrCode は [Bacon/BaconQrCode](https://github.com/Bacon/BaconQrCode)を元に作られた 人気のあるLaravelフレームワークで簡単に使う事のできるラッパーです。Laravelユーザーになじみのある使い方ができるように開発されました。
+Simple QrCode は [Bacon/BaconQrCode](https://github.com/Bacon/BaconQrCode) を元に作られた 人気のあるLaravelフレームワークで簡単に使う事のできるラッパーです。Laravelユーザーになじみのある使い方ができるように開発されました。
+
+![Example 1](https://raw.githubusercontent.com/SimpleSoftwareIO/simple-qrcode/master/docs/imgs/example-1.png?raw=true) ![Example 2](https://raw.githubusercontent.com/SimpleSoftwareIO/simple-qrcode/master/docs/imgs/example-2.png?raw=true)
 
 <a id="docs-translations"></a>
 ## 翻訳
@@ -25,11 +27,13 @@ We are looking for users who speak Arabic, Spanish, French, Korean or Japanese t
 ## 設定
 
 #### Composer
+
 最初にあなたの `composer.json` に Simple QrCode パッケージを追加する必要があります。
 
 	"require": {
 		"simplesoftwareio/simple-qrcode": "~2"
 	}
+
 追加したら `composer update` コマンドを実行します。
 
 #### サービスプロバイダー
@@ -48,21 +52,22 @@ We are looking for users who speak Arabic, Spanish, French, Korean or Japanese t
 #### 画面に表示する
 
 このパッケージの主なアイテムは 画面に表示する機能です。
-カスタマーはコードをスキャンするだけで 画面に戻ることが出来ます。以下の内容をfooter.blade.php に追加しました。
+カスタマーはコードをスキャンするだけで 画面に戻ることが出来ます。以下の内容を footer.blade.php に追加しました。
+
 	<div class="visible-print text-center">
 		{!! QrCode::size(100)->generate(Request::url()); !!}
 		<p>スキャンして元のページに戻ります</p>
 	</div>
 
-#### QrCodeを埋め込む
+#### QRコードを埋め込む
 
-ユーザーがすばやくスキャンできるように、電子メールの中にqrcodeを埋め込むことができます。 以下はLaravelでこれを行う方法の例です。
+ユーザーがすばやくスキャンできるように、電子メールの中にQRコードを埋め込むことができます。 以下はLaravelでこれを行う方法の例です。
 
-	//Inside of a blade template.
+	// Bladeテンプレート内で以下のように書きます
 	<img src="{!!$message->embedData(QrCode::format('png')->generate('Embed me into an e-mail!'), 'QrCode.png', 'image/png')!!}">
 
 <a id="docs-usage"></a>
-## Usage
+## 使い方
 
 #### 基本的な使い方
 
@@ -71,6 +76,8 @@ We are looking for users who speak Arabic, Spanish, French, Korean or Japanese t
 	QrCode::generate('Make me into a QrCode!');
 
 これで「Make me into a QrCode!」というQRコードが作成されます。
+
+![QRコード生成例](https://raw.githubusercontent.com/SimpleSoftwareIO/simple-qrcode/master/docs/imgs/make-me-into-a-qrcode.png?raw=true)
 
 #### 生成する
 
@@ -89,7 +96,7 @@ Laravel Blade に以下の様に書くことで モダンなブラウザに表�
 
 	QrCode::generate('Make me into a QrCode!', '../public/qrcodes/qrcode.svg');
 
-#### フォーマットを変える
+#### フォーマットを変える `(string$ format)`
 
 >QrCode Generator のデフォルトフォーマットはSVGイメージです。
 
@@ -102,7 +109,7 @@ Laravel Blade に以下の様に書くことで モダンなブラウザに表�
 	QrCode::format('eps');  //Will return a EPS image
 	QrCode::format('svg');  //Will return a SVG image
 
-#### サイズの変更
+#### サイズの変更 `(int $size)`
 
 >QrCode GeneratorはデフォルトでQRコードを作成するためにピクセルで可能な最小サイズを返します。
 
@@ -110,7 +117,7 @@ Laravel Blade に以下の様に書くことで モダンなブラウザに表�
 
 	QrCode::size(100);
 
-#### 色の変更
+#### 色の変更 `(int $red, int $green, int $blue, int $alpha = null)`
 
 >要注意 色を変えるときには注意してください。QrCodeの読み込みが難しくなる 色が有ります。
 
@@ -122,7 +129,7 @@ Laravel Blade に以下の様に書くことで モダンなブラウザに表�
 
 	QrCode::backgroundColor(255,255,0);
 
-#### マージンの変更
+#### マージンの変更 `(int $margin)`
 
 QRコード周辺のマージンを変更する機能もサポートされています。 次の構文を使用してマージンを指定します:
 	QrCode::margin(100);
