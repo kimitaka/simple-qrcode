@@ -166,17 +166,19 @@ You can change the background color of a QrCode by calling the `backgroundColor`
 | `2`    | ![Eye  2](https://raw.githubusercontent.com/SimpleSoftwareIO/simple-qrcode/master/docs/imgs/eye-2.png?raw=true) |
 
 
-#### Style `(string $style, float $size = 0.5)`
+#### スタイル `(string $style, float $size = 0.5)`
 
-The style can be easily swapped out with `square`, `dot,` or `round`.  This will change the blocks within the QrCode.  The second parameter will affect the size of the dots or roundness.
+ブロックのスタイルは`style`メソッドを使用して`square`、`dot`、`round`に簡単に変更できます。 
+これはQRコードの内部のブロックを変更します。
+2つめのパラメーターは`dot`と`round`の大きさを指定します。
 
-	QrCode::style('dot'); // Uses the `dot` style.
+	QrCode::style('dot'); // `dot`スタイルに変更
 
-| Style | Example |
-| --- | --- |
+| スタイル     | 例                                                                                                                    |
+|----------|----------------------------------------------------------------------------------------------------------------------|
 | `square` | ![Square](https://raw.githubusercontent.com/SimpleSoftwareIO/simple-qrcode/master/docs/imgs/200-pixels.png?raw=true) |
-| `dot` | ![Dot](https://raw.githubusercontent.com/SimpleSoftwareIO/simple-qrcode/master/docs/imgs/dot.png)|
-| `round` | ![Round](https://raw.githubusercontent.com/SimpleSoftwareIO/simple-qrcode/master/docs/imgs/round.png?raw=true) |
+| `dot`    | ![Dot](https://raw.githubusercontent.com/SimpleSoftwareIO/simple-qrcode/master/docs/imgs/dot.png)                    |
+| `round`  | ![Round](https://raw.githubusercontent.com/SimpleSoftwareIO/simple-qrcode/master/docs/imgs/round.png?raw=true)       |
 
 #### Eye Style `(string $style)`
 
