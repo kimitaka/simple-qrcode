@@ -145,13 +145,13 @@ You can change the background color of a QrCode by calling the `backgroundColor`
 
 以下のグラデーションタイプがサポートされています:
 
-| タイプ                | 例                                                                                                                                   |
-|--------------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| `vertical`         | ![Veritcal](https://raw.githubusercontent.com/SimpleSoftwareIO/simple-qrcode/master/docs/imgs/vertical.png?raw=true)                |
-| `horizontal`       | ![Horizontal](https://raw.githubusercontent.com/SimpleSoftwareIO/simple-qrcode/master/docs/imgs/horizontal.png?raw=true)            |
-| `diagonal`         | ![Diagonal](https://raw.githubusercontent.com/SimpleSoftwareIO/simple-qrcode/master/docs/imgs/diagonal.png?raw=true)                |
-| `inverse_diagonal` | ![Invrse Diagonal](https://raw.githubusercontent.com/SimpleSoftwareIO/simple-qrcode/master/docs/imgs/inverse_diagonal.png?raw=true) |
-| `radial`           | ![Radial](https://raw.githubusercontent.com/SimpleSoftwareIO/simple-qrcode/master/docs/imgs/radial.png?raw=true)                    |
+| タイプ                | 例                                                                                                                                    |
+|--------------------|--------------------------------------------------------------------------------------------------------------------------------------|
+| `vertical`         | ![Vertical](https://raw.githubusercontent.com/SimpleSoftwareIO/simple-qrcode/master/docs/imgs/vertical.png?raw=true)                 |
+| `horizontal`       | ![Horizontal](https://raw.githubusercontent.com/SimpleSoftwareIO/simple-qrcode/master/docs/imgs/horizontal.png?raw=true)             |
+| `diagonal`         | ![Diagonal](https://raw.githubusercontent.com/SimpleSoftwareIO/simple-qrcode/master/docs/imgs/diagonal.png?raw=true)                 |
+| `inverse_diagonal` | ![Inverse Diagonal](https://raw.githubusercontent.com/SimpleSoftwareIO/simple-qrcode/master/docs/imgs/inverse_diagonal.png?raw=true) |
+| `radial`           | ![Radial](https://raw.githubusercontent.com/SimpleSoftwareIO/simple-qrcode/master/docs/imgs/radial.png?raw=true)                     |
 
 #### EyeColor `(int $eyeNumber, int $innerRed, int $innerGreen, int $innerBlue, int $outterRed = 0, int $outterGreen = 0, int $outterBlue = 0)`
 
