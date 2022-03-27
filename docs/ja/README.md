@@ -2,22 +2,6 @@
 
 #### [Deutsch](http://www.simplesoftware.io/#/docs/simple-qrcode/de) | [Español](http://www.simplesoftware.io/#/docs/simple-qrcode/es) | [Français](http://www.simplesoftware.io/#/docs/simple-qrcode/fr) | [Italiano](http://www.simplesoftware.io/#/docs/simple-qrcode/it) | [Português](http://www.simplesoftware.io/#/docs/simple-qrcode/pt-br) | [Русский](http://www.simplesoftware.io/#/docs/simple-qrcode/ru) | [日本語](http://www.simplesoftware.io/#/docs/simple-qrcode/ja) | [한국어](http://www.simplesoftware.io/#/docs/simple-qrcode/kr) | [हिंदी](http://www.simplesoftware.io/#/docs/simple-qrcode/hi) | [简体中文](http://www.simplesoftware.io/#/docs/simple-qrcode/zh-cn)
 
-## Try our dead simple, free file transfer service [keep.sh](https://keep.sh)
-
-[![keep.sh](https://user-images.githubusercontent.com/624784/95805291-1121e980-0cd3-11eb-9048-0264bd9f2fd7.gif)](https://keep.sh)
-
-Upload files with a single curl command from your terminal! `curl --upload-file file.txt https://keep.sh`
-
-## Use Cases
-<p align="center">
-  <a href="https://www.rsvpify.com">
-  	<img width="300" src="https://rsvpify.com/wp-content/uploads/2017/03/rsvpify-logo-header-rsvp.png">
-  </a>
-</p>
-<p align="center">
-  <a href="https://rsvpify.com/sell-tickets">Platform to sell tickets online</a>
-</p>
-
 <a id="docs-introduction"></a>
 ## イントロダクション
 Simple QrCode は [Bacon/BaconQrCode](https://github.com/Bacon/BaconQrCode)を元に作られた 人気のあるLaravelフレームワークで簡単に使う事のできるラッパーです。Laravelユーザーになじみのある使い方ができるように開発されました。
