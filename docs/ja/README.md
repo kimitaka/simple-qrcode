@@ -129,6 +129,65 @@ Laravel Blade に以下の様に書くことで モダンなブラウザに表�
 
 	QrCode::backgroundColor(255,255,0);
 
+#### Background Color `(int $red, int $green, int $blue, int $alpha = null)`
+
+You can change the background color of a QrCode by calling the `backgroundColor` method.
+
+	QrCode::backgroundColor(255, 0, 0); // Red background QrCode
+	QrCode::backgroundColor(255, 0, 0, 25); //Red background QrCode with 25% transparency 
+
+![Red Background QrCode](https://raw.githubusercontent.com/SimpleSoftwareIO/simple-qrcode/master/docs/imgs/red-background.png?raw=true) ![Red Transparent Background QrCode](https://raw.githubusercontent.com/SimpleSoftwareIO/simple-qrcode/master/docs/imgs/red-25-transparent-background.png?raw=true)
+
+#### Gradient `$startRed, $startGreen, $startBlue, $endRed, $endGreen, $endBlue, string $type)`
+
+You can apply a gradient to the QrCode by calling the `gradient` method.
+
+The following gradient types are supported:
+
+| Type | Example |
+| --- | --- |
+| `vertical` | ![Veritcal](https://raw.githubusercontent.com/SimpleSoftwareIO/simple-qrcode/master/docs/imgs/vertical.png?raw=true) |
+| `horizontal` | ![Horizontal](https://raw.githubusercontent.com/SimpleSoftwareIO/simple-qrcode/master/docs/imgs/horizontal.png?raw=true) |
+| `diagonal` | ![Diagonal](https://raw.githubusercontent.com/SimpleSoftwareIO/simple-qrcode/master/docs/imgs/diagonal.png?raw=true) |
+| `inverse_diagonal` | ![Invrse Diagonal](https://raw.githubusercontent.com/SimpleSoftwareIO/simple-qrcode/master/docs/imgs/inverse_diagonal.png?raw=true) |
+| `radial` | ![Radial](https://raw.githubusercontent.com/SimpleSoftwareIO/simple-qrcode/master/docs/imgs/radial.png?raw=true) |
+
+#### EyeColor `(int $eyeNumber, int $innerRed, int $innerGreen, int $innerBlue, int $outterRed = 0, int $outterGreen = 0, int $outterBlue = 0)`
+
+You may change the eye colors by using the `eyeColor` method.
+
+	QrCode::eyeColor(0, 255, 255, 255, 0, 0, 0); // Changes the eye color of eye `0`
+
+| Eye Number | Example |
+| --- | --- |
+| `0` | ![Eye 0](https://raw.githubusercontent.com/SimpleSoftwareIO/simple-qrcode/master/docs/imgs/eye-0.png?raw=true) |
+| `1` | ![Eye 1](https://raw.githubusercontent.com/SimpleSoftwareIO/simple-qrcode/master/docs/imgs/eye-1.png?raw=true)|
+| `2` | ![Eye  2](https://raw.githubusercontent.com/SimpleSoftwareIO/simple-qrcode/master/docs/imgs/eye-2.png?raw=true) |
+
+
+#### Style `(string $style, float $size = 0.5)`
+
+The style can be easily swapped out with `square`, `dot,` or `round`.  This will change the blocks within the QrCode.  The second parameter will affect the size of the dots or roundness.
+
+	QrCode::style('dot'); // Uses the `dot` style.
+
+| Style | Example |
+| --- | --- |
+| `square` | ![Square](https://raw.githubusercontent.com/SimpleSoftwareIO/simple-qrcode/master/docs/imgs/200-pixels.png?raw=true) |
+| `dot` | ![Dot](https://raw.githubusercontent.com/SimpleSoftwareIO/simple-qrcode/master/docs/imgs/dot.png)|
+| `round` | ![Round](https://raw.githubusercontent.com/SimpleSoftwareIO/simple-qrcode/master/docs/imgs/round.png?raw=true) |
+
+#### Eye Style `(string $style)`
+
+The eye within the QrCode supports two different styles, `square` and `circle`.
+
+	QrCode::eye('circle'); // Uses the `circle` style eye.
+
+| Style | Example |
+| --- | --- |
+| `square` | ![Square](https://raw.githubusercontent.com/SimpleSoftwareIO/simple-qrcode/master/docs/imgs/200-pixels.png?raw=true) |
+| `circle` | ![Circle](https://raw.githubusercontent.com/SimpleSoftwareIO/simple-qrcode/master/docs/imgs/circle-eye.png?raw=true)|
+
 #### マージンの変更 `(int $margin)`
 
 QRコード周辺のマージンを変更する機能もサポートされています。 次の構文を使用してマージンを指定します:
