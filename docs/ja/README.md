@@ -20,10 +20,7 @@ Upload files with a single curl command from your terminal! `curl --upload-file 
 
 <a id="docs-introduction"></a>
 ## イントロダクション
-Simple QrCode は [Bacon/BaconQrCode](https://github.com/Bacon/BaconQrCode)を元に作られた 人気のあるLaravelフレームワークで簡単に使う事のできるラッパーです。
-
-
-Simple QrCode is an easy to use wrapper for the popular Laravel framework based on the great work provided by [Bacon/BaconQrCode](https://github.com/Bacon/BaconQrCode).  We created an interface that is familiar and easy to install for Laravel users.
+Simple QrCode は [Bacon/BaconQrCode](https://github.com/Bacon/BaconQrCode)を元に作られた 人気のあるLaravelフレームワークで簡単に使う事のできるラッパーです。Laravelユーザーになじみのある使い方ができるように開発されました。
 
 <a id="docs-translations"></a>
 ## 翻訳
@@ -45,15 +42,15 @@ We are looking for users who speak Arabic, Spanish, French, Korean or Japanese t
 #### サービスプロバイダー
 
 ###### Laravel <= 5.4
-(あなたが Simple QrCode を入れる laravelの) `config/app.php` の `providers`配列 に `SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class` を登録します。
+(あなたが Simple QrCode を入れる Laravelの) `config/app.php` の `providers`配列 に `SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class` を登録します。
 
-#### Aliases
+#### エイリアス
 
 ###### Laravel <= 5.4
 最後に `config/app.php` の `aliases`配列に `'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class` を登録します。
 
 <a id="docs-ideas"></a>
-## かんたんに使う
+## 簡単な使い方
 
 #### 画面に表示する
 
@@ -61,7 +58,7 @@ We are looking for users who speak Arabic, Spanish, French, Korean or Japanese t
 カスタマーはコードをスキャンするだけで 画面に戻ることが出来ます。以下の内容をfooter.blade.php に追加しました。
 	<div class="visible-print text-center">
 		{!! QrCode::size(100)->generate(Request::url()); !!}
-		<p>Scan me to return to the original page.</p>
+		<p>スキャンして元のページに戻ります</p>
 	</div>
 
 #### QrCodeを埋め込む
@@ -76,22 +73,22 @@ We are looking for users who speak Arabic, Spanish, French, Korean or Japanese t
 
 #### 基本的な使い方
 
-QrCode Generatorを使うのはとても簡単です。 最も基本的な構文は次のとおりです。
+使い方はとても簡単です。 最も基本的な構文は次のとおりです。
 
 	QrCode::generate('Make me into a QrCode!');
 
-これで「Make me into a QrCode!」というQrCodeが作成されます。
+これで「Make me into a QrCode!」というQRコードが作成されます。
 
 #### 生成する
 
-`Generate`はQrCodeを作るのに使われます。
+`generate`はQRコードを生成するのに使われます。
 
 	QrCode::generate('Make me into a QrCode!');
 
 >要注意： チェーン内で使用する場合は、このメソッドを最後に呼び出す必要があります。
 
-`Generate`はデフォルトで SVG イメージ文字列を返します。
-Laravel Bladeに以下の様に書くことで モダンなブラウザに表示することができます。
+`generate`はデフォルトで SVG イメージ文字列を返します。
+Laravel Blade に以下の様に書くことで モダンなブラウザに表示することができます。
 
 	{!! QrCode::generate('Make me into a QrCode!'); !!}
 
@@ -114,7 +111,7 @@ Laravel Bladeに以下の様に書くことで モダンなブラウザに表示
 
 #### サイズの変更
 
->QrCode GeneratorはデフォルトでQrCodeを作成するためにピクセルで可能な最小サイズを返します。
+>QrCode GeneratorはデフォルトでQRコードを作成するためにピクセルで可能な最小サイズを返します。
 
 `size`メソッドを使うことでQrCodeのサイズを変えることができます。 次の構文を使用して、必要なサイズをピクセル単位で指定します。
 
@@ -134,7 +131,7 @@ Laravel Bladeに以下の様に書くことで モダンなブラウザに表示
 
 #### マージンの変更
 
-QrCode周辺のマージンを変更する機能もサポートされています。 次の構文を使用してマージンを指定します:
+QRコード周辺のマージンを変更する機能もサポートされています。 次の構文を使用してマージンを指定します:
 	QrCode::margin(100);
 
 #### エラー訂正 `(string $errorCorrection)`
